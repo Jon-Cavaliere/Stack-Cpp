@@ -1,0 +1,15 @@
+﻿  Stack-Cpp.cpp
+C:\Programming\c++_ws\Stack-Cpp\Stack-Cpp\Stack.h(143,21): warning C4018: '<': signed/unsigned mismatch
+C:\Programming\c++_ws\Stack-Cpp\Stack-Cpp\Stack.h(142,2): message : while compiling class template member function 'void JC::Stack<int>::print(void)'
+C:\Programming\c++_ws\Stack-Cpp\Stack-Cpp\Stack-Cpp.cpp(11,15): message : see the first reference to 'JC::Stack<int>::print' in 'main'
+C:\Programming\c++_ws\Stack-Cpp\Stack-Cpp\Stack-Cpp.cpp(5,20): message : see reference to class template instantiation 'JC::Stack<int>' being compiled
+C:\Programming\c++_ws\Stack-Cpp\Stack-Cpp\Stack.h(94,21): warning C4018: '<': signed/unsigned mismatch
+C:\Programming\c++_ws\Stack-Cpp\Stack-Cpp\Stack.h(90,2): message : while compiling class template member function 'void JC::Stack<int>::resize(uint32_t)'
+C:\Programming\c++_ws\Stack-Cpp\Stack-Cpp\Stack.h(77,10): message : see the first reference to 'JC::Stack<int>::resize' in 'JC::Stack<int>::push'
+C:\Programming\c++_ws\Stack-Cpp\Stack-Cpp\Stack-Cpp.cpp(8,14): message : see the first reference to 'JC::Stack<int>::push' in 'main'
+C:\Programming\c++_ws\Stack-Cpp\Stack-Cpp\Stack.h(52,3): message : while compiling class template member function 'JC::Stack<int>::Stack(uint32_t,float)'
+C:\Programming\c++_ws\Stack-Cpp\Stack-Cpp\Stack-Cpp.cpp(5,24): message : see the first reference to 'JC::Stack<int>::Stack' in 'main'
+C:\Programming\c++_ws\Stack-Cpp\Stack-Cpp\Stack.h(100,21): warning C4018: '<': signed/unsigned mismatch
+  Stack.cpp
+  Generating Code...
+  Stack-Cpp.vcxproj -> C:\Programming\c++_ws\Stack-Cpp\x64\Debug\Stack-Cpp.exe
