@@ -24,12 +24,13 @@ namespace JC
 		Stack<T>(uint32_t initial_size, float growth_factor = 2.0f);
 		~Stack<T>();
 		void push(T obj);					// Pushes an element to the top of the stack
-		T pop();						// Pops the top element off the stack, returns a copy
-		void resize(uint32_t new_size);				// Resizes the array, moves all the elements over
+		T pop();							// Pops the top element off the stack, returns a copy
+		void resize(uint32_t new_size);		// Resizes the array, moves all the elements over
 		uint32_t count();					// Returns # of elements on stack
-		T* get(uint32_t index);					// Returns a pointer to element at index 
-		void set(uint32_t index, T val);			// Sets the value of elemnt at index
+		T* get(uint32_t index);				// Returns a pointer to element at index 
+		void set(uint32_t index, T val);	// Sets the value of elemnt at index
 		bool hasNext();						// Returns true if stack has elements
+		T* peek();							// Returns a pointer to element on top of stack
 
 		void print();						// Dumps entire contents of stack to console (oldest -> most recently pushed)
 
@@ -49,7 +50,7 @@ namespace JC
 	// Definitions
 	template <typename T>
 	inline Stack<T>::Stack(uint32_t initial_size, float growth_factor)
-		: m_Size(initial_size), m_Count(0), m_GrowthFactor(growth_factor)
+		: m_Size(initial_size), m_Count(0), m_GrowthFactor(growth_factor), p_Top(nullptr)
 	{
 		p_Arr = new T[initial_size];
 	}
@@ -69,6 +70,7 @@ namespace JC
 		{
 			// If it does, add it
 			p_Arr[m_Count++] = obj;
+			p_Top = &p_Arr[m_Count - 1];
 		}
 		else
 		{
@@ -76,11 +78,26 @@ namespace JC
 			uint32_t new_size = std::lrint(m_Size * m_GrowthFactor);
 			resize(new_size);
 			p_Arr[m_Count++] = obj;
+			p_Top = &p_Arr[m_Count - 1];
 		}
 	}
 
 	template <typename T>
-	inline T Stack<T>::pop() { return p_Arr[--m_Count]; }
+	inline T Stack<T>::pop()
+	{ 
+		if (m_Count >= 2)
+		{
+			p_Top = &p_Arr[--m_Count-1];
+			return p_Arr[m_Count];
+		}
+		else if (m_Count == 1)
+		{
+			m_Count = 0;
+			p_Top = nullptr;
+			return p_Arr[m_Count];
+		}
+		throw new std::invalid_argument("Trying to pop nonexistent element off stack: Count = 0");
+	}
 
 	template <typename T>
 	inline void Stack<T>::resize(uint32_t new_size)
@@ -129,10 +146,16 @@ namespace JC
 	inline bool Stack<T>::hasNext()
 	{
 		// Check if number of current elements is > 0
-		if (m_Size > 0)
+		if (m_Count > 0)
 			return true;
 		// If not, no next :)
 		return false;
+	}
+
+	template<typename T>
+	inline T* Stack<T>::peek()
+	{
+		return p_Top;
 	}
 
 	template<typename T>
