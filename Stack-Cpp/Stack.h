@@ -23,15 +23,15 @@ namespace JC
 		*/
 		Stack<T>(uint32_t initial_size, float growth_factor = 2.0f);
 		~Stack<T>();
-		void push(T obj);												// Pushes an element to the top of the stack
-		T pop();														// Pops the top element off the stack, returns a copy
-		void resize(uint32_t new_size);									// Resizes the array, moves all the elements over
-		uint32_t count();												// Returns # of elements on stack
-		T* get(uint32_t index);											// Returns a pointer to element at index 
-		void set(uint32_t index, T val);								// Sets the value of elemnt at index
-		bool hasNext();													// Returns true if stack has elements
+		void push(T obj);					// Pushes an element to the top of the stack
+		T pop();						// Pops the top element off the stack, returns a copy
+		void resize(uint32_t new_size);				// Resizes the array, moves all the elements over
+		uint32_t count();					// Returns # of elements on stack
+		T* get(uint32_t index);					// Returns a pointer to element at index 
+		void set(uint32_t index, T val);			// Sets the value of elemnt at index
+		bool hasNext();						// Returns true if stack has elements
 
-		void print();													// Dumps entire contents of stack to console (oldest -> most recently pushed)
+		void print();						// Dumps entire contents of stack to console (oldest -> most recently pushed)
 
 	private:
 		// Heap allocated array of T objects to store
@@ -80,10 +80,7 @@ namespace JC
 	}
 
 	template <typename T>
-	inline T Stack<T>::pop()
-	{
-		return p_Arr[--m_Count];
-	}
+	inline T Stack<T>::pop() { return p_Arr[--m_Count]; }
 
 	template <typename T>
 	inline void Stack<T>::resize(uint32_t new_size)
@@ -104,10 +101,7 @@ namespace JC
 	}
 
 	template<typename T>
-	inline uint32_t Stack<T>::count()
-	{
-		return m_Count;
-	}
+	inline uint32_t Stack<T>::count(){ return m_Count; }
 
 	template<typename T>
 	inline T* Stack<T>::get(uint32_t index)
