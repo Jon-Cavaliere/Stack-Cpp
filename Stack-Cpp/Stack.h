@@ -24,13 +24,13 @@ namespace JC
 		Stack<T>(uint32_t initial_size, float growth_factor = 2.0f);
 		~Stack<T>();
 		void push(T obj);					// Pushes an element to the top of the stack
-		T pop();							// Pops the top element off the stack, returns a copy
-		void resize(uint32_t new_size);		// Resizes the array, moves all the elements over
+		T pop();						// Pops the top element off the stack, returns a copy
+		void resize(uint32_t new_size);				// Resizes the array, moves all the elements over
 		uint32_t count();					// Returns # of elements on stack
-		T* get(uint32_t index);				// Returns a pointer to element at index 
-		void set(uint32_t index, T val);	// Sets the value of elemnt at index
+		T* get(uint32_t index);					// Returns a pointer to element at index 
+		void set(uint32_t index, T val);			// Sets the value of elemnt at index
 		bool hasNext();						// Returns true if stack has elements
-		T* peek();							// Returns a pointer to element on top of stack
+		T* peek();						// Returns a pointer to element on top of stack
 
 		void print();						// Dumps entire contents of stack to console (oldest -> most recently pushed)
 
